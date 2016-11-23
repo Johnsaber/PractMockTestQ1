@@ -29,6 +29,7 @@
         android:hint="Enter your phone number"
         android:inputType="phone"/>
     <RadioGroup
+       android:id="@+id/ii"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">

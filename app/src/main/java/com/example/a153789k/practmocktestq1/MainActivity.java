@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,7 +14,9 @@ public class MainActivity extends AppCompatActivity {
     EditText etName;
     EditText etPhone;
     TextView tvRegister;
+    RadioGroup g;
    boolean male, female;
+    String dis;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         etName = (EditText) findViewById(R.id.txtName);
         etPhone = (EditText) findViewById(R.id.txtPhone);
         tvRegister = (TextView) findViewById(R.id.tvRegister);
+        g = (RadioGroup) findViewById(R.id.ii);
 
         o.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,10 +34,19 @@ public class MainActivity extends AppCompatActivity {
              String name = etName.getText().toString();
              String phone = etPhone.getText().toString();
 
-                male = findViewById(R.id.rdnBtn1).isSelected();
-                female = findViewById(R.id.rdnBtn2).isSelected();
+                male = ((RadioButton)findViewById(R.id.rdnBtn1)).isChecked();
+                female = ((RadioButton)findViewById(R.id.rdnBtn2)).isChecked();
+
+                int findInt = g.getCheckedRadioButtonId();
+                dis = ((RadioButton)findViewById(findInt)).getText().toString();
+
+
+//                dis = ((RadioButton)findViewById(g.getCheckedRadioButtonId())).getText().toString();
+
 
                 tvRegister.setText(name+","+phone+","+male+","+female);
+
+
 
 
 
@@ -48,5 +61,5 @@ public class MainActivity extends AppCompatActivity {
 //   public void btnClick(View v)
 //   {
 
-   }
+//   }
 }
